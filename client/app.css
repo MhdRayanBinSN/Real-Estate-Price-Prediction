@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #3a86ff;
+  --secondary-color: #8338ec;
+  --accent-color: #3a86ff;
+  --success-color: #06d6a0;
+  --light-bg: #f8f9fa;
+  --dark-text: #343a40;
+  --light-text: #6c757d;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--dark-text);
+  line-height: 1.6;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  z-index: -1;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--light-text);
+  font-size: 1.1rem;
+}
+
+.card, .result-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+.card:hover, .result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.prediction-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--dark-text);
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+  outline: none;
+}
+
+.option-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option-buttons input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.option-buttons label {
+  background-color: #f0f2f5;
+  color: var(--dark-text);
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+  text-align: center;
+  min-width: 48px;
+}
+
+.option-buttons input:checked + label {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.option-buttons label:hover {
+  background-color: #e2e6ea;
+}
+
+.option-buttons input:checked + label:hover {
+  background-color: #2a75e6;
+}
+
+.btn-estimate {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.btn-estimate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-estimate:active {
+  transform: translateY(0);
+}
+
+.result-card {
+  text-align: center;
+  background: linear-gradient(to right, #ffffff, #f8f9fa);
+}
+
+.result-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--dark-text);
+}
+
+.price-value {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--success-color);
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(6, 214, 160, 0.1);
+  display: inline-block;
+  min-width: 200px;
+}
+
+.waiting-text {
+  font-size: 1rem;
+  color: var(--light-text);
+  font-weight: normal;
+}
+
+footer {
+  text-align: center;
+  color: var(--light-text);
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .card, .result-card {
+    padding: 1.5rem;
+  }
+  
+  .price-value {
+    font-size: 1.8rem;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .option-buttons {
+    justify-content: center;
+  }
+  
+  .price-value {
+    font-size: 1.5rem;
+    min-width: 150px;
+  }
+}
